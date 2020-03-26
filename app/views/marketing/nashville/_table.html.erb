@@ -1,4 +1,4 @@
-<div class="flex flex-col mt-8">
+<div class="flex flex-col mt-12">
   <div class="-my-2 py-2 overflow-x-auto sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8">
     <div class="align-middle inline-block min-w-full shadow overflow-hidden sm:rounded-lg border-b border-gray-200">
       <table class="min-w-full">
@@ -11,13 +11,13 @@
               New Cases
             </th>
             <th class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
-              Deaths
-            </th>
-            <th class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
               Total Cases
             </th>
             <th class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
-              Total Recovered Cases
+              Deaths
+            </th>
+            <th class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
+              Recovered Cases
             </th>
           </tr>
         </thead>
@@ -26,26 +26,96 @@
             <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 font-medium text-gray-900">
               3-25-20
             </td>
+
             <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-500">
               4
+              <div class="inline-flex items-baseline ml-2 text-xs leading-5 font-semibold text-green-400">
+                <svg class="flex-shrink-0 self-center h-4 w-4 text-green-300" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M14.707 10.293a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 111.414-1.414L9 12.586V5a1 1 0 012 0v7.586l2.293-2.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                </svg>
+                <span class="sr-only">
+                  Decreased by
+                </span>
+                20%
+              </div>
             </td>
+
             <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-500">
-              1
-            </td>
-            <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-500 flex">
               257
-              <div class="ml-2 text-xs leading-5 font-semibold text-green-600 flex tems-baseline">
-                <svg class="self-center flex-shrink-0 h-4 w-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+              <div class="inline-flex items-baseline ml-2 text-xs leading-5 font-semibold text-red-400">
+                <svg class="flex-shrink-0 self-center h-4 w-4 text-red-300" fill="currentColor" viewBox="0 0 20 20">
                   <path fill-rule="evenodd" d="M5.293 9.707a1 1 0 010-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 01-1.414 1.414L11 7.414V15a1 1 0 11-2 0V7.414L6.707 9.707a1 1 0 01-1.414 0z" clip-rule="evenodd"/>
                 </svg>
                 <span class="sr-only">
                   Increased by
                 </span>
-                134%
+                40%
+              </div>
+            </td>
+
+            <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-500">
+              1
+            </td>
+
+            <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-500">
+              34
+              <div class="inline-flex items-baseline ml-2 text-xs leading-5 font-semibold text-green-300">
+                <svg class="flex-shrink-0 self-center h-4 w-4 text-green-300" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M5.293 9.707a1 1 0 010-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 01-1.414 1.414L11 7.414V15a1 1 0 11-2 0V7.414L6.707 9.707a1 1 0 01-1.414 0z" clip-rule="evenodd"/>
+                </svg>
+                <span class="sr-only">
+                  Increased by
+                </span>
+                56%
+              </div>
+            </td>
+          </tr>
+
+          <tr class="bg-white">
+            <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 font-medium text-gray-900">
+              3-23-20&#42;
+            </td>
+            <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-500">
+              5
+
+              <div class="inline-flex items-baseline ml-2 text-xs leading-5 font-semibold text-green-400">
+                <svg class="flex-shrink-0 self-center h-4 w-4 text-green-300" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M14.707 10.293a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 111.414-1.414L9 12.586V5a1 1 0 012 0v7.586l2.293-2.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                </svg>
+                <span class="sr-only">
+                  Decreased by
+                </span>
+                90%
               </div>
             </td>
             <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-500">
-              34
+              184
+
+              <div class="inline-flex items-baseline ml-2 text-xs leading-5 font-semibold text-red-400">
+                <svg class="flex-shrink-0 self-center h-4 w-4 text-red-300" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M5.293 9.707a1 1 0 010-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 01-1.414 1.414L11 7.414V15a1 1 0 11-2 0V7.414L6.707 9.707a1 1 0 01-1.414 0z" clip-rule="evenodd"/>
+                </svg>
+                <span class="sr-only">
+                  Increased by
+                </span>
+                67%
+              </div>
+            </td>
+            <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-500">
+              1
+            </td>
+            <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-500">
+              27
+
+              <div class="inline-flex items-baseline ml-2 text-xs leading-5 font-semibold text-green-300">
+                <svg class="flex-shrink-0 self-center h-4 w-4 text-green-300" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M5.293 9.707a1 1 0 010-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 01-1.414 1.414L11 7.414V15a1 1 0 11-2 0V7.414L6.707 9.707a1 1 0 01-1.414 0z" clip-rule="evenodd"/>
+                </svg>
+                <span class="sr-only">
+                  Increased by
+                </span>
+                80%
+              </div>
             </td>
           </tr>
 
@@ -55,12 +125,31 @@
             </td>
             <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-500">
               50
-            </td>
-            <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-500">
-              1
+              <div class="inline-flex items-baseline text-xs leading-5 font-semibold text-red-400">
+                <svg class="flex-shrink-0 self-center h-4 w-4 text-red-300" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M5.293 9.707a1 1 0 010-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 01-1.414 1.414L11 7.414V15a1 1 0 11-2 0V7.414L6.707 9.707a1 1 0 01-1.414 0z" clip-rule="evenodd"/>
+                </svg>
+                <span class="sr-only">
+                  Increased by
+                </span>
+                257%
+              </div>
             </td>
             <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-500">
               110
+
+              <div class="inline-flex items-baseline ml-2 text-xs leading-5 font-semibold text-red-400">
+                <svg class="flex-shrink-0 self-center h-4 w-4 text-red-300" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M5.293 9.707a1 1 0 010-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 01-1.414 1.414L11 7.414V15a1 1 0 11-2 0V7.414L6.707 9.707a1 1 0 01-1.414 0z" clip-rule="evenodd"/>
+                </svg>
+                <span class="sr-only">
+                  Increased by
+                </span>
+                83%
+              </div>
+            </td>
+            <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-500">
+              1
             </td>
             <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-500">
               15
@@ -73,12 +162,77 @@
             </td>
             <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-500">
               14
+              <div class="inline-flex items-baseline text-xs leading-5 font-semibold text-green-400">
+                <svg class="flex-shrink-0 self-center h-4 w-4 text-green-300" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M14.707 10.293a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 111.414-1.414L9 12.586V5a1 1 0 012 0v7.586l2.293-2.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                </svg>
+                <span class="sr-only">
+                  Decreased by
+                </span>
+                33%
+              </div>
+            </td>
+            <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-500">
+              60
+
+              <div class="inline-flex items-baseline ml-2 text-xs leading-5 font-semibold text-red-400">
+                <svg class="flex-shrink-0 self-center h-4 w-4 text-red-300" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M5.293 9.707a1 1 0 010-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 01-1.414 1.414L11 7.414V15a1 1 0 11-2 0V7.414L6.707 9.707a1 1 0 01-1.414 0z" clip-rule="evenodd"/>
+                </svg>
+                <span class="sr-only">
+                  Increased by
+                </span>
+                30%
+              </div>
             </td>
             <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-500">
               1
             </td>
             <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-500">
-              60
+              -
+            </td>
+          </tr>
+
+          <tr class="bg-white">
+            <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 font-medium text-gray-900">
+              3-19-20
+            </td>
+            <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-500">
+              21
+            </td>
+            <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-500">
+              46
+            </td>
+            <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-500">
+              1
+
+              <div class="inline-flex items-baseline ml-2 text-xs leading-5 font-semibold text-red-400">
+                <svg class="flex-shrink-0 self-center h-4 w-4 text-red-300" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M5.293 9.707a1 1 0 010-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 01-1.414 1.414L11 7.414V15a1 1 0 11-2 0V7.414L6.707 9.707a1 1 0 01-1.414 0z" clip-rule="evenodd"/>
+                </svg>
+                <span class="sr-only">
+                  Increased by
+                </span>
+                100%
+              </div>
+            </td>
+            <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-500">
+              -
+            </td>
+          </tr>
+
+          <tr class="bg-white">
+            <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 font-medium text-gray-900">
+              3-18-20
+            </td>
+            <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-500">
+              -
+            </td>
+            <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-500">
+              -
+            </td>
+            <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-500">
+              0
             </td>
             <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-500">
               -

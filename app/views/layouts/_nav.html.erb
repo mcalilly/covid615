@@ -36,10 +36,16 @@
   </div>
   <div :class="{'block': open, 'hidden': !open}" class="hidden sm:hidden">
     <div class="pt-2 pb-3">
-      <% if current_page?(about_path) %>
-        <%= link_to 'About', about_path, class: "mt-1 block pl-3 pr-4 py-2 border-l-4 border-indigo-500 text-base font-medium text-indigo-700 bg-indigo-50 focus:outline-none focus:text-indigo-800 focus:bg-indigo-100 focus:border-indigo-700 transition duration-150 ease-in-out" %>
+      <% if current_page?(nashville_path) %>
+        <%= link_to 'Nashville Stats', nashville_path, class: "mt-1 block pl-3 pr-4 py-2 border-l-4 border-indigo-500 text-base font-medium text-indigo-700 bg-indigo-50 focus:outline-none focus:text-indigo-800 focus:bg-indigo-100 focus:border-indigo-700 transition duration-150 ease-in-out" %>
       <% else %>
-        <%= link_to 'About', about_path, class: "mt-1 block pl-3 pr-4 py-2 border-l-4 border-transparent text-base font-medium text-gray-600 hover:text-gray-800 hover:bg-gray-50 hover:border-gray-300 focus:outline-none focus:text-gray-800 focus:bg-gray-50 focus:border-gray-300 transition duration-150 ease-in-out" %>
+        <%= link_to 'Nashville Stats', nashville_path, class: "mt-1 block pl-3 pr-4 py-2 border-l-4 border-transparent text-base font-medium text-gray-600 hover:text-gray-800 hover:bg-gray-50 hover:border-gray-300 focus:outline-none focus:text-gray-800 focus:bg-gray-50 focus:border-gray-300 transition duration-150 ease-in-out" %>
+      <% end %>
+
+      <% if current_page?(about_path) %>
+        <%= link_to 'About', about_path, class: "block pl-3 pr-4 py-2 border-l-4 border-indigo-500 text-base font-medium text-indigo-700 bg-indigo-50 focus:outline-none focus:text-indigo-800 focus:bg-indigo-100 focus:border-indigo-700 transition duration-150 ease-in-out" %>
+      <% else %>
+        <%= link_to 'About', about_path, class: "block pl-3 pr-4 py-2 border-l-4 border-transparent text-base font-medium text-gray-600 hover:text-gray-800 hover:bg-gray-50 hover:border-gray-300 focus:outline-none focus:text-gray-800 focus:bg-gray-50 focus:border-gray-300 transition duration-150 ease-in-out" %>
       <% end %>
 
       <% if current_page?(get_involved_path) %>
