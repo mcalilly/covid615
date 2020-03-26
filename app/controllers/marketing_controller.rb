@@ -1,6 +1,6 @@
 class MarketingController < ApplicationController
 
-  def cities
+  def home
   end
 
   def about

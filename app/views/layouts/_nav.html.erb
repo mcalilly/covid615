@@ -1,26 +1,23 @@
 <nav x-data="{ open: false }" class="bg-white shadow-sm">
-  <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex justify-between h-16">
       <div class="flex">
         <div class="flex-shrink-0 flex items-center">
-          <%= link_to 'Local Coronavirus Tracker', root_path, class: "text-orange-500 hover:text-orange-400" %>
+          <%= link_to 'Nashville Coronavirus Tracker', nashville_path, class: "text-xl text-indigo-500 hover:text-indigo-400" %>
         </div>
         <div class="hidden sm:ml-6 sm:flex">
-          <% if current_page?(root_path) %>
-            <%= link_to 'Cities', root_path, class: "inline-flex items-center px-1 pt-1 border-b-2 border-orange-500 text-sm font-medium leading-5 text-gray-900 focus:outline-none focus:border-orange-700 transition duration-150 ease-in-out"  %>
+          <% if current_page?(about_path) %>
+            <%= link_to 'About', about_path, class: "inline-flex items-center px-1 pt-1 border-b-2 border-indigo-500 text-sm font-medium leading-5 text-gray-900 focus:outline-none focus:border-indigo-700 transition duration-150 ease-in-out"  %>
           <% else %>
-            <%= link_to 'Cities', root_path, class: "inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium leading-5 text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition duration-150 ease-in-out"  %>
+            <%= link_to 'About', about_path, class: "inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium leading-5 text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition duration-150 ease-in-out"  %>
           <% end %>
 
-          <% if current_page?(get_involved_path) %>
-            <%= link_to 'Get Involved', get_involved_path, class: "ml-8 inline-flex items-center px-1 pt-1 border-b-2 border-orange-500 text-sm font-medium leading-5 text-gray-900 focus:outline-none focus:border-orange-700 transition duration-150 ease-in-out"  %>
-          <% else %>
-            <%= link_to 'Get Involved', get_involved_path, class: "ml-8 inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium leading-5 text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition duration-150 ease-in-out"  %>
-          <% end %>
+          <%= link_to 'Contact', "mailto:leemcalilly@gmail.com", class: "ml-8 inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium leading-5 text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition duration-150 ease-in-out"  %>
+
         </div>
       </div>
       <div class="hidden sm:ml-6 sm:flex sm:items-center">
-        <%= link_to "About This Project", about_path, class: "py-1 px-2 border-2 border-transparent bg-transparent hover:bg-orange-400 text-orange-500 text-xs tracking-wider uppercase rounded font-semibold hover:text-white border border-orange-400 hover:border-transparent" %>
+        <%= link_to "Get Involved", get_involved_path, class: "py-1 px-2 border-2 border-transparent bg-transparent hover:bg-indigo-400 text-indigo-500 text-xs tracking-wider uppercase rounded font-semibold hover:text-white border border-indigo-400 hover:border-transparent" %>
 
         <div @click.away="open = false" class="ml-3 relative" x-data="{ open: false }">
           <div x-show="open" x-transition:enter="transition ease-out duration-200" x-transition:enter-start="transform opacity-0 scale-95" x-transition:enter-end="transform opacity-100 scale-100" x-transition:leave="transition ease-in duration-75" x-transition:leave-start="transform opacity-100 scale-100" x-transition:leave-end="transform opacity-0 scale-95" class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg">
@@ -39,23 +36,20 @@
   </div>
   <div :class="{'block': open, 'hidden': !open}" class="hidden sm:hidden">
     <div class="pt-2 pb-3">
-      <% if current_page?(root_path) %>
-        <%= link_to 'Cities', root_path, class: "block pl-3 pr-4 py-2 border-l-4 border-orange-500 text-base font-medium text-orange-700 bg-orange-50 focus:outline-none focus:text-orange-800 focus:bg-orange-100 focus:border-orange-700 transition duration-150 ease-in-out" %>
-      <% else %>
-        <%= link_to 'Cities', root_path, class: "block pl-3 pr-4 py-2 border-l-4 border-transparent text-base font-medium text-gray-600 hover:text-gray-800 hover:bg-gray-50 hover:border-gray-300 focus:outline-none focus:text-gray-800 focus:bg-gray-50 focus:border-gray-300 transition duration-150 ease-in-out" %>
-      <% end %>
-
       <% if current_page?(about_path) %>
-        <%= link_to 'About', about_path, class: "mt-1 block pl-3 pr-4 py-2 border-l-4 border-orange-500 text-base font-medium text-orange-700 bg-orange-50 focus:outline-none focus:text-orange-800 focus:bg-orange-100 focus:border-orange-700 transition duration-150 ease-in-out" %>
+        <%= link_to 'About', about_path, class: "mt-1 block pl-3 pr-4 py-2 border-l-4 border-indigo-500 text-base font-medium text-indigo-700 bg-indigo-50 focus:outline-none focus:text-indigo-800 focus:bg-indigo-100 focus:border-indigo-700 transition duration-150 ease-in-out" %>
       <% else %>
         <%= link_to 'About', about_path, class: "mt-1 block pl-3 pr-4 py-2 border-l-4 border-transparent text-base font-medium text-gray-600 hover:text-gray-800 hover:bg-gray-50 hover:border-gray-300 focus:outline-none focus:text-gray-800 focus:bg-gray-50 focus:border-gray-300 transition duration-150 ease-in-out" %>
       <% end %>
 
       <% if current_page?(get_involved_path) %>
-        <%= link_to 'Get Involved', get_involved_path, class: "mt-1 block pl-3 pr-4 py-2 border-l-4 border-orange-500 text-base font-medium text-orange-700 bg-orange-50 focus:outline-none focus:text-orange-800 focus:bg-orange-100 focus:border-orange-700 transition duration-150 ease-in-out" %>
+        <%= link_to 'Get Involved', get_involved_path, class: "mt-1 block pl-3 pr-4 py-2 border-l-4 border-indigo-500 text-base font-medium text-indigo-700 bg-indigo-50 focus:outline-none focus:text-indigo-800 focus:bg-indigo-100 focus:border-indigo-700 transition duration-150 ease-in-out" %>
       <% else %>
         <%= link_to 'Get Involved', get_involved_path, class: "mt-1 block pl-3 pr-4 py-2 border-l-4 border-transparent text-base font-medium text-gray-600 hover:text-gray-800 hover:bg-gray-50 hover:border-gray-300 focus:outline-none focus:text-gray-800 focus:bg-gray-50 focus:border-gray-300 transition duration-150 ease-in-out" %>
       <% end %>
+
+      <%= link_to 'Contact', "mailto:leemcalilly@gmail.com", class: "mt-1 block pl-3 pr-4 py-2 border-l-4 border-transparent text-base font-medium text-gray-600 hover:text-gray-800 hover:bg-gray-50 hover:border-gray-300 focus:outline-none focus:text-gray-800 focus:bg-gray-50 focus:border-gray-300 transition duration-150 ease-in-out"  %>
+
     </div>
   </div>
 </nav>

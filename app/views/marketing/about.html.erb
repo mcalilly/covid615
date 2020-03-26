@@ -1,35 +1,31 @@
 <section class="max-w-lg mx-auto">
-  <h1 class="uppercase font-bold tracking-wider text-gray-400 text-xl">
+  <h1 class="uppercase font-semibold tracking-wider text-gray-400 text-xl">
     About This Project
   </h1>
 
-  <p>This site was built very quickly by <a class="underline hover:text-orange-400" href="https://stackoverflow.com/cv/leemcalilly">Lee McAlilly</a> of <a class="underline hover:text-orange-400" href="https://www.mcalilly.com">McAlilly Creative Partners</a>, a web design &amp; develpment agency in Nashville, TN.</p>
+  <p>This site was built and launched in a day by <a class="underline hover:text-indigo-400" href="https://stackoverflow.com/cv/leemcalilly">Lee McAlilly</a> of <a class="underline hover:text-indigo-400" href="https://www.mcalilly.com">McAlilly Creative Partners</a>, a web design &amp; develpment agency in Nashville, TN. It remains a work in progress.</p>
 
-  <h2 class="mt-8 uppercase font-bold tracking-wider text-gray-400">
+  <h2 class="mb-2 mt-8 uppercase font-semibold tracking-wider text-gray-400">
+    Don't See Your City?
+  </h2>
+  <p class="mt-2">
+    <a href="https://github.com/leemcalilly/coronavirus">
+      We'd love for you to <span class="underline hover:text-indigo-400">fork our Github repository</span>, add your city, improve the site, and submit a pull request!
+    </a>
+  </p>
+
+  <h2 class="mt-8 uppercase font-semibold tracking-wider text-gray-400">
     Why Build This?
   </h2>
-  <p class="mt-2">I made this because I've been waking up each day during the <a class="underline hover:text-orange-400" href="https://twitter.com/search?q=%23coronapanic&src=typeahead_click">#coronapanic</a> and looking at the latest data on the <a class="underline hover:text-orange-400" href="https://coronavirus.jhu.edu/map.html?mod=article_inline">John's Hopkins coronavirus dashboard</a> followed by the <a class="underline hover:text-orange-400" href="https://www.nytimes.com/interactive/2020/us/coronavirus-us-cases.html">NY Times' latest numbers</a> for Davidson County, TN.</p>
+  <p class="mt-2">I made this because I've been waking up each day during the <a class="underline hover:text-indigo-400" href="https://twitter.com/search?q=%23coronapanic&src=typeahead_click">#coronapanic</a> and looking at the latest data on the <a class="underline hover:text-indigo-400" href="https://coronavirus.jhu.edu/map.html?mod=article_inline">Johns Hopkins coronavirus dashboard</a> followed by the <a class="underline hover:text-indigo-400" href="https://www.nytimes.com/interactive/2020/us/coronavirus-us-cases.html">NY Times' latest numbers</a> for Davidson County, TN, and more recently, <a class="underline hover:text-indigo-400 href="https://www.asafenashville.org">Metro Nashville's coronavirus website</a>.</p>
 
-  <p class="mt-2">I've been frustrated because neither sources gave me a sense of the growth rate in Nashville, which is the key metric to understand about how the virus is spreading. You would expect that tracking the data for our city would be type of journalism that my local newspaper, <a class="underline hover:text-orange-400" href="https://www.tennessean.com">The Tennessean</a>, would be doing for Nashville right now, but they are mostly regurgitating national headlines and linking to the Johns Hopkins global dashboard.</p>
+  <p class="mt-2">I've been frustrated because none of these sources gave me a sense of the growth rate in Nashville, which is the key metric to understand about how the virus is spreading. You would expect that tracking and visualizing the data for our city would be type of journalism that my local newspaper, <a class="underline hover:text-indigo-400" href="https://www.tennessean.com">The Tennessean</a>, would be doing for Nashville right now, but they are mostly regurgitating national headlines and linking to the Johns Hopkins global dashboard.</p>
 
-  <p class="mt-2">Then I realized it wouldn't take that much effort to log this data daily for just one city. The City of Nashville is actually doing this on a website <a class="underline hover:text-orange-400" href="https://www.asafenashville.org">asafenashville.org</a>, which is what I'm using as the source the data for Nashville, but again, they are not giving any information on how this data is changing over time. I realized I could pull this data from the city and keep track of how it changes over time where I live. If you'd like to do this in your community, please submit a pull request to the github repository and I'll make this a larger open source effort.</p>
+  <p class="mt-2">Then I realized it wouldn't take that much effort to log this data daily for just one city. The City of Nashville is now posting their numbers to website <a class="underline hover:text-indigo-400" href="https://www.asafenashville.org">asafenashville.org</a>, which is what I'm using as the source the data for Nashville. But, they are not providing any information on how this data is changing over time. I realized I could scrape this data from the city's website and keep track of how it changes over time. If you'd like to do this in your community, please <a href="https://github.com/leemcalilly/coronavirus">submit a pull request to the github repository</a> and wecan make this an open source project that is not specific to Nashville.</p>
 
-  <h2 class="mt-8 uppercase font-bold tracking-wider text-gray-400">
-    Suggestions for Reading Covid-19 Data
-  </h2>
-  <p class="mt-2">I'm not a doctor or public health expert, but it seems the rate at which the number of deaths are growing in your area is one of the most important numbers to watch. This is especially important in areas where the total number of confirmed cases are large (like California or New York). Because we <strong>still</strong> don't have widespread testing here in the US, it's hard to know how many people are infected. The number of confirmed cases is likely so distant from the number of actual cases, that number is unreliable.</p>
-
-  <p class="mt-2">But if the virus breaks out, like in New York City, then the growth in the number of deaths becomes useful. The change in the number of deaths each day is reliable because hospitals are most likely reporting all of these numbers accurately, so that can give us a real sense of how this virus is spreading or slowing.</p>
-
-  <p class="mt-2">If, like Nashville, you're lucky and the virus is not yet widespread, then the change in the number of deaths is, thankfully, going to be significant. In this case, it's key to watch the change in new reported cases. Total cases is not a very useful number because after 14 days, you are presumably immune and not able to get the virus or transfer the virus to someone else.</p>
-
-  <p class="mt-2">So even though we don't yet have widespread testing to undrestand what's really happening, our best proxy is the growth rate of total new cases in our community.</p>
-
-  <h2 class="mt-8 uppercase font-bold tracking-wider text-gray-400">
+  <h2 class="mt-8 uppercase font-semibold tracking-wider text-gray-400">
     Share Data, Not Coronavirus
   </h2>
 
-  <p class="mt-2">It's important that we all understand the data that matters to stop this virus and <em>flatten the curve</em>. The key stats in your community are not what the media tends to highlight. We need more localized insight into how the virus is spreading. By sharing this dashboard with others in your community that have the web development skills to help with this effort, you can help diredctly.</p>
-
-  <p class="mt-2">If there's already a dashboard for your community, like this one for Nashville, please share it with friend and family, and on social media to spread the localized data that we need to quell this virus.</p>
+  <p class="mt-2">It's important that we all understand the data that matters to stop this virus and <em>flatten the curve</em>. The key stats in our communities are not what the national media tends to highlight. We need more localized insight into how the virus is spreading. By sharing this dashboard with others we can give people a better understanding of what's happening with Covid-19.</p>
 </section>
