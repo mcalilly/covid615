@@ -1,5 +1,5 @@
 <head>
-  <title>Nashville, TN Covid-19 Tracker | See how the virus is growing over time</title>
+  <title>Nashville, TN Covid-19 Tracker &bull; See how the virus is growing over time</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="The raw data does not tell the full story of Covid-19 in Nashville. This tracker takes daily data from Metro Nashville and compiles it into a dashboard that shows how the virus is growing over time.">
@@ -16,4 +16,15 @@
 
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-161945530-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-161945530-1');
+  </script>
+
 </head>
