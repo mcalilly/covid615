@@ -1,3 +1,9 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+
+  # Public Marketing Pages
+ root "marketing#cities"
+ get "/about" => "marketing#about", as: "about"
+ get "/get-involved" => "marketing#get_involved", as: "get_involved"
+ get "/nashville" => "marketing#nashville", as: "nashville"
+
 end

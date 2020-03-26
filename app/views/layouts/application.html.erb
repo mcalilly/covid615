@@ -1,15 +1,22 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Coronavirus</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+<html lang="en">
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+  <%= render "layouts/html_header" %>
 
   <body>
-    <%= yield %>
+    <%= render "layouts/nav" %>
+
+    <div class="min-h-screen bg-gray-100">
+      <div class="py-10">
+        <main>
+          <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <%= yield %>
+          </div>
+        </main>
+
+        <%= render "layouts/footer" %>
+      </div>
+    </div>
+
   </body>
 </html>
