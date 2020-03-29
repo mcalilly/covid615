@@ -48,7 +48,7 @@ ActiveRecord::Schema.define(version: 2020_03_29_130232) do
 
   create_table "updates", force: :cascade do |t|
     t.bigint "county_id", null: false
-    t.date "date"
+    t.date "datetime"
     t.string "source"
     t.integer "cases"
     t.integer "deaths"
