@@ -6,7 +6,6 @@
   <thead>
     <tr>
       <th>County</th>
-      <th>Fips</th>
       <th>Date</th>
       <th>Source</th>
       <th>Cases</th>
@@ -19,7 +18,6 @@
     <% @updates.each do |update| %>
       <tr>
         <td><%= update.county_id %></td>
-        <td><%= update.fips %></td>
         <td><%= update.date %></td>
         <td><%= update.source %></td>
         <td><%= update.cases %></td>

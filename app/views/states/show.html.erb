@@ -10,5 +10,11 @@
   <%= @state.fips %>
 </p>
 
+<ul>
+  <% @state.counties.each do |county| %>
+    <li><%= link_to county.name, state_county_path(county.state, county) %></li>
+  <% end %>
+</ul>
+
 <%= link_to 'Edit', edit_state_path(@state) %> |
 <%= link_to 'Back', states_path %>
