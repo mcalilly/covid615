@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Updates</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>County</th>
+      <th>Fips</th>
+      <th>Date</th>
+      <th>Source</th>
+      <th>Cases</th>
+      <th>Deaths</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @updates.each do |update| %>
+      <tr>
+        <td><%= update.county_id %></td>
+        <td><%= update.fips %></td>
+        <td><%= update.date %></td>
+        <td><%= update.source %></td>
+        <td><%= update.cases %></td>
+        <td><%= update.deaths %></td>
+        <td><%= link_to 'Show', update %></td>
+        <td><%= link_to 'Edit', edit_update_path(update) %></td>
+        <td><%= link_to 'Destroy', update, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Update', new_update_path %>

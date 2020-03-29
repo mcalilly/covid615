@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  county: one
+  fips: 1
+  date: 2020-03-28
+  source: MyString
+  cases: 1
+  deaths: 1
+
+two:
+  county: two
+  fips: 1
+  date: 2020-03-28
+  source: MyString
+  cases: 1
+  deaths: 1

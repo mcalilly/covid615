@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Counties</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Fips</th>
+      <th>State</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @counties.each do |county| %>
+      <tr>
+        <td><%= county.name %></td>
+        <td><%= county.fips %></td>
+        <td><%= county.state_id %></td>
+        <td><%= link_to 'Show', county %></td>
+        <td><%= link_to 'Edit', edit_county_path(county) %></td>
+        <td><%= link_to 'Destroy', county, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New County', new_county_path %>

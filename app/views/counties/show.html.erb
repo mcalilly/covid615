@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @county.name %>
+</p>
+
+<p>
+  <strong>Fips:</strong>
+  <%= @county.fips %>
+</p>
+
+<p>
+  <strong>State:</strong>
+  <%= @county.state_id %>
+</p>
+
+<%= link_to 'Edit', edit_county_path(@county) %> |
+<%= link_to 'Back', counties_path %>

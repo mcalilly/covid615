@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>County:</strong>
+  <%= @update.county_id %>
+</p>
+
+<p>
+  <strong>Fips:</strong>
+  <%= @update.fips %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @update.date %>
+</p>
+
+<p>
+  <strong>Source:</strong>
+  <%= @update.source %>
+</p>
+
+<p>
+  <strong>Cases:</strong>
+  <%= @update.cases %>
+</p>
+
+<p>
+  <strong>Deaths:</strong>
+  <%= @update.deaths %>
+</p>
+
+<%= link_to 'Edit', edit_update_path(@update) %> |
+<%= link_to 'Back', updates_path %>

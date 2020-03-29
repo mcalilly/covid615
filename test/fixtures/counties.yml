@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  fips: 1
+  state: one
+
+two:
+  name: MyString
+  fips: 1
+  state: two
