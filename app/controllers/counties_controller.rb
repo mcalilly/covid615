@@ -10,6 +10,7 @@ class CountiesController < ApplicationController
   # GET /counties/1
   # GET /counties/1.json
   def show
+    @last_update = County.updates.last
   end
 
   # GET /counties/new
