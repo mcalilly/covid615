@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
 
   resources :updates
-  resources :counties
-  resources :states
+  resources :states do
+    resources :counties
+  end
   # Public Marketing Pages
  root "marketing#nashville"
  get "/about" => "marketing#about", as: "about"
