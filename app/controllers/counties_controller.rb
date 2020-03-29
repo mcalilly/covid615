@@ -64,7 +64,7 @@ class CountiesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_county
-      @county = County.find(params[:id])
+      @county = County.friendly.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.
