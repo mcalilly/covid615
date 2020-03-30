@@ -52,6 +52,8 @@ ActiveRecord::Schema.define(version: 2020_03_29_130232) do
     t.string "source"
     t.integer "cases"
     t.integer "deaths"
+    t.decimal "case_growth_rate", precision: 5, scale: 2
+    t.decimal "death_growth_rate", precision: 5, scale: 2
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["county_id"], name: "index_updates_on_county_id"

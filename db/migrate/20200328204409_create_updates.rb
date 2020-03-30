@@ -6,6 +6,8 @@ class CreateUpdates < ActiveRecord::Migration[6.0]
       t.string :source
       t.integer :cases
       t.integer :deaths
+      t.decimal :case_growth_rate, precision: 5, scale: 2
+      t.decimal :death_growth_rate, precision: 5, scale: 2
 
       t.timestamps
     end
