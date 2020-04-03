@@ -1,18 +1,30 @@
 class Update < ApplicationRecord
+  default_scope { order(date: :desc) }
+
   before_save :calculate_case_growth_rate
   # after_commit :calculate_daily_death_growth_rate
 
   belongs_to :county
   validates :date, uniqueness: true
 
+
   private
+
     def calculate_case_growth_rate
-      cases_today = self.cases
-      cases_yesterday = Update.second_to_last.cases
-      self.case_growth_rate = (cases_today - cases_yesterday) / cases_yesterday
+      current_update  = self
+      current_cases   = self.cases
+      previous_update = Update.where(date: 1.day.ago)
+      previous_cases  = previous_update.pluck(:cases).join.to_i
+      self.case_growth_rate = (current_cases - previous_cases) / current_cases
     end
 
     def calculate_daily_death_growth_rate
       # do math to calculate daily death growth rate
     end
 end
+#
+#
+# current_update  = Update.last
+# current_cases   = current_update.cases
+# previous_update = Update.where(date: 1.day.ago)
+# previous_cases  = previous_update.pluck(:cases).join.to_i
