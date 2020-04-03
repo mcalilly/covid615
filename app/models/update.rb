@@ -11,8 +11,8 @@ class Update < ApplicationRecord
 
     def calculate_case_growth_rate
       current_cases  = self.cases
-      previous_cases = Update.where(date: (date-1.day ) ).sum(:cases)
-      self.case_growth_rate = ((current_cases - previous_cases) / current_cases)*100
+      previous_cases = Update.where(date: (self.date - 1.day)).sum(:cases)
+      self.case_growth_rate = ((current_cases - previous_cases) / current_cases)
     end
 
     def calculate_daily_death_growth_rate
