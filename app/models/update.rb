@@ -7,14 +7,11 @@ class Update < ApplicationRecord
   belongs_to :county
   validates :date, uniqueness: true
 
-
   private
 
     def calculate_case_growth_rate
-      current_update  = self
-      current_cases   = self.cases
-      previous_update = Update.where(date: 1.day.ago)
-      previous_cases  = previous_update.pluck(:cases).join.to_i
+      current_cases  = self.cases
+      previous_cases = Update.where(date: 1.day.ago).sum(:cases)
       self.case_growth_rate = (current_cases - previous_cases) / current_cases
     end
 
@@ -22,9 +19,9 @@ class Update < ApplicationRecord
       # do math to calculate daily death growth rate
     end
 end
-#
-#
+
 # current_update  = Update.last
 # current_cases   = current_update.cases
 # previous_update = Update.where(date: 1.day.ago)
 # previous_cases  = previous_update.pluck(:cases).join.to_i
+# Update.where(date: Update.last.date-1.day)
