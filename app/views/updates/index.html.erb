@@ -9,7 +9,7 @@
     <li>Date: <%= update.date %></li>
     <li>Source: <%= update.source %></li>
     <li>Cases: <%= update.cases %></li>
-    <li>Case Growth Rate: <%=  number_to_percentage(update.case_growth_rate) %></li>
+    <li>Case Growth Rate: <%=  number_to_percentage(update.case_growth_rate, precision: 0) %></li>
     <li>Deaths: <%= update.deaths %></li>
     <li><%= link_to 'Show', update %></li>
     <li><%= link_to 'Edit', edit_update_path(update) %></li>
