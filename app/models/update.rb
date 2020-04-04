@@ -14,15 +14,25 @@ class Update < ApplicationRecord
       previous_update = Update.where(date: self.date-1.day)
       next_update     = Update.where(date: self.date+1.day)
 
-      current_update_cases  = current_update.sum(:cases).to_f
-      previous_update_cases = previous_update.sum(:cases).to_f
-      current_update_case_growth_rate = ((current_update_cases - previous_update_cases) / previous_update_cases) * 100
-      self.update_columns(case_growth_rate: current_update_case_growth_rate)
+      if previous_update.present?
+        current_update_cases  = current_update.sum(:cases).to_f
+        previous_update_cases = previous_update.sum(:cases).to_f
+        current_update_case_growth_rate = ((current_update_cases - previous_update_cases) / previous_update_cases) * 100
+        self.update_columns(case_growth_rate: current_update_case_growth_rate)
+      end
 
-      if next_update.present?
+      if next_update.present? && previous_update.present?
         next_update_cases = next_update.sum(:cases).to_f
         next_update_case_growth_rate = ((next_update_cases - current_update_cases) / current_update_cases) * 100
-        self.next_update.update_columns(case_growth_rate: next_update_case_growth_rate)
+        next_update.update_all(case_growth_rate: next_update_case_growth_rate)
+      end
+
+      if next_update.present? != previous_update.present?
+        self.update_columns(case_growth_rate: 100.00)
+        next_update_cases = next_update.sum(:cases).to_f
+        current_update_cases  = current_update.sum(:cases).to_f
+        next_update_case_growth_rate = ((next_update_cases - current_update_cases) / current_update_cases) * 100
+        next_update.update_all(case_growth_rate: next_update_case_growth_rate)
       end
     end
 

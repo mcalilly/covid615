@@ -69,6 +69,6 @@ class UpdatesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def update_params
-      params.require(:update).permit(:county_id, :date, :source, :cases, :deaths)
+      params.require(:update).permit(:county_id, :date, :source, :cases, :deaths, :case_growth_rate)
     end
 end
