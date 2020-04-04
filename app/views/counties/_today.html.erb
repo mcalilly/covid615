@@ -26,7 +26,7 @@
                 <span class="sr-only">
                   Decreased by
                 </span>
-                <%=  number_to_percentage(@current_update.case_growth_rate.nil? ? "n/a" : @current_update.case_growth_rate, precision: 0) %>
+                <%=  number_to_percentage(@current_update.case_growth_rate.nil? ? "n/a" : @current_update.case_growth_rate*100, precision: 0) %>
               </div>
             <% elsif @current_update.case_growth_rate > 0 %>
               <div class="inline-flex items-baseline px-2.5 py-0.5 rounded-full text-sm font-medium leading-5 bg-red-100 text-red-800 md:mt-2 lg:mt-0">
@@ -36,7 +36,7 @@
                 <span class="sr-only">
                   Decreased by
                 </span>
-                <%=  number_to_percentage(@current_update.case_growth_rate.nil? ? "n/a" : @current_update.case_growth_rate, precision: 0) %>
+                <%=  number_to_percentage(@current_update.case_growth_rate.nil? ? "n/a" : @current_update.case_growth_rate*100, precision: 0) %>
               </div>
             <% end %>
           </dd>

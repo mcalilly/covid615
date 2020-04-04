@@ -18,8 +18,8 @@ class Update < ApplicationRecord
       previous_update_cases = previous_update.sum(:cases).to_f
       next_update_cases = next_update.sum(:cases).to_f
 
-      current_update_case_growth_rate = ((current_update_cases - previous_update_cases) / previous_update_cases) * 100
-      next_update_cases_growth_rate = ((next_update_cases - current_update_cases) / current_update_cases) * 100
+      current_update_case_growth_rate = (current_update_cases - previous_update_cases) / previous_update_cases
+      next_update_cases_growth_rate = (next_update_cases - current_update_cases) / current_update_cases
 
       if previous_update.present? && next_update.empty?
         if current_update_cases == 0
@@ -62,8 +62,8 @@ class Update < ApplicationRecord
       previous_update_deaths = previous_update.sum(:deaths).to_f
       next_update_deaths = next_update.sum(:deaths).to_f
 
-      current_update_death_growth_rate = ((current_update_deaths - previous_update_deaths) / previous_update_deaths) * 100
-      next_update_deaths_growth_rate = ((next_update_deaths - current_update_deaths) / current_update_deaths) * 100
+      current_update_death_growth_rate = (current_update_deaths - previous_update_deaths) / previous_update_deaths
+      next_update_deaths_growth_rate = (next_update_deaths - current_update_deaths) / current_update_deaths
 
       if previous_update.present? && next_update.empty?
         if current_update_deaths == 0
@@ -92,6 +92,7 @@ class Update < ApplicationRecord
           next_update.update_all(death_growth_rate: nil)
         else
           self.update_columns(death_growth_rate: nil)
+          binding.pry
           next_update.update_all(death_growth_rate: next_update_deaths_growth_rate)
         end
       end
