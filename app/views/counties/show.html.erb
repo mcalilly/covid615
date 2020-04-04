@@ -7,7 +7,7 @@
 
   <div class="notes text-xs text-center text-gray-400 mt-8">
     <p class="text-gray-500 mt-4">
-      <em>Last updated on <%= @most_recent_update.updated_at.strftime("%B %e, %Y at %I:%M %p %Z") %></em>
+      <em>Last updated on <%= @current_update.updated_at.strftime("%B %e, %Y at %I:%M %p %Z") %></em>
     </p>
     <p class="mt-2">
       <em>Data is pulled from the <a class="underline hover:text-indigo-400" href="https://github.com/CSSEGISandData/COVID-19">John's Hopkins Covid-19 Dashboard</a>.</em>
