@@ -14,29 +14,23 @@ class Update < ApplicationRecord
   private
 
     def calculate_total_cases
-      if self.present?
-        updates_through_today = Update.where(date: 100.years.ago..self.date)
-        total_cases_through_today = updates_through_today.sum(:cases).to_f
-        self.update_columns(total_cases: total_cases_through_today)
-      end
+      updates_through_today = Update.where(date: 100.years.ago..self.date)
+      total_cases_through_today = updates_through_today.sum(:cases).to_f
+      self.update_columns(total_cases: total_cases_through_today)
     end
 
     def calculate_total_deaths
-      if self.present?
-        updates_through_today = Update.where(date: 100.years.ago..self.date)
-        total_deaths_through_today = updates_through_today.sum(:deaths).to_f
-        self.update_columns(total_deaths: total_deaths_through_today)
-      end
+      updates_through_today = Update.where(date: 100.years.ago..self.date)
+      total_deaths_through_today = updates_through_today.sum(:deaths).to_f
+      self.update_columns(total_deaths: total_deaths_through_today)
     end
 
     def calculate_average_death_rate
-      if self.present?
-        updates_through_today = Update.where(date: 100.years.ago..self.date)
-        total_cases_through_today = updates_through_today.sum(:cases).to_f
-        total_deaths_through_today = updates_through_today.sum(:deaths).to_f
-        current_average_death_rate = total_deaths_through_today / total_cases_through_today
-        self.update_columns(average_death_rate: current_average_death_rate)
-      end
+      updates_through_today = Update.where(date: 100.years.ago..self.date)
+      total_cases_through_today = updates_through_today.sum(:cases).to_f
+      total_deaths_through_today = updates_through_today.sum(:deaths).to_f
+      current_average_death_rate = total_deaths_through_today / total_cases_through_today
+      self.update_columns(average_death_rate: current_average_death_rate)
     end
 
     def calculate_new_cases_growth_rate
