@@ -11,9 +11,12 @@ class CountiesController < ApplicationController
   # GET /counties/1.json
   def show
     @current_update = @county.updates.first
-    @current_update_cases = @current_update.cases
     @previous_update =  @county.updates.where(date: @current_update.date-1.day)
-    @previous_update_cases = @previous_update.sum(:cases)
+    @current_update_new_cases = @current_update.cases
+    @previous_update_new_cases = @previous_update.sum(:cases)
+    @current_update_total_cases = @current_update.total_cases
+    @previous_update_total_cases = @previous_update.sum(:total_cases)
+    @current_update_total_deaths = @current_update.total_deaths
   end
 
   # GET /counties/new

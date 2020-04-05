@@ -11,10 +11,10 @@
           </dt>
           <dd class="mt-1 flex justify-between items-baseline md:block lg:flex">
             <div class="flex items-baseline text-2xl leading-8 font-semibold text-indigo-600">
-              <%= @current_update_cases %>
+              <%= @current_update_new_cases %>
 
               <span class="ml-2 text-sm leading-5 font-medium text-gray-500">
-                from <%= @previous_update_cases %>
+                from <%= @previous_update_new_cases %>
               </span>
             </div>
 
@@ -51,9 +51,9 @@
           </dt>
           <dd class="mt-1 flex justify-between items-baseline md:block lg:flex">
             <div class="flex items-baseline text-2xl leading-8 font-semibold text-indigo-600">
-              Need to total these on updates
+              <%= @current_update_total_cases %>
               <span class="ml-2 text-sm leading-5 font-medium text-gray-500">
-                from 376
+                from <%= @previous_update_total_cases %>
               </span>
             </div>
             <div class="inline-flex items-baseline px-2.5 py-0.5 rounded-full text-sm font-medium leading-5 bg-red-100 text-red-800 md:mt-2 lg:mt-0">
@@ -63,7 +63,7 @@
               <span class="sr-only">
                 Increased by
               </span>
-              5%
+              [MATH]
             </div>
           </dd>
         </dl>
@@ -77,7 +77,11 @@
           </dt>
           <dd class="mt-1 flex justify-between items-baseline md:block lg:flex">
             <div class="flex items-baseline text-2xl leading-8 font-semibold text-indigo-600">
-              calculate this as total deaths
+              <%= @current_update_total_deaths %>
+            </div>
+
+            <div class="inline-flex items-baseline px-2.5 py-0.5 rounded-full text-sm font-medium leading-5 bg-red-100 text-red-800 md:mt-2 lg:mt-0">
+              [MATH] avg death rate
             </div>
           </dd>
         </dl>
