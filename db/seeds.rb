@@ -237,3 +237,11 @@ Update.create!(
   new_cases: 48,
   new_deaths: 0
 )
+
+Update.create!(
+  # id: 29
+  county_id: 1,
+  date: "2020-04-05",
+  new_cases: 68,
+  new_deaths: 0
+)
