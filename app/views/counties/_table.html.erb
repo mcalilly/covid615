@@ -26,7 +26,7 @@
           <% @county.updates.each do |update| %>
             <tr class="<%= cycle("bg-white", "bg-gray-50") %>">
               <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 font-medium text-gray-900">
-                <%= update.date %>
+                <%= update.date.strftime("%B %e") %>
               </td>
 
               <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-500">
