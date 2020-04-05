@@ -3,8 +3,9 @@ class Update < ApplicationRecord
 
   after_commit :calculate_total_cases
   after_commit :calculate_total_deaths
-  after_commit :calculate_daily_case_growth_rate
-  after_commit :calculate_daily_death_growth_rate
+  after_commit :calculate_new_cases_growth_rate
+  # after_commit :calculate_total_case_growth_rate
+  after_commit :calculate_new_deaths_growth_rate
 
   belongs_to :county
   validates :date, uniqueness: true
@@ -23,7 +24,7 @@ class Update < ApplicationRecord
       self.update_columns(total_deaths: total_deaths_through_today)
     end
 
-    def calculate_daily_case_growth_rate
+    def calculate_new_cases_growth_rate
       current_update  = Update.where(date: self.date)
       previous_update = Update.where(date: self.date-1.day)
       next_update     = Update.where(date: self.date+1.day)
@@ -37,37 +38,37 @@ class Update < ApplicationRecord
 
       if previous_update.present? && next_update.empty?
         if current_update_cases == 0
-          self.update_columns(case_growth_rate: nil)
+          self.update_columns(new_cases_growth_rate: nil)
         else
-          self.update_columns(case_growth_rate: current_update_case_growth_rate)
+          self.update_columns(new_cases_growth_rate: current_update_case_growth_rate)
         end
       end
 
       if next_update.present? && previous_update.present?
         if current_update_cases == 0
-          self.update_columns(case_growth_rate: nil)
-          next_update.update_all(case_growth_rate: nil)
+          self.update_columns(new_cases_growth_rate: nil)
+          next_update.update_all(new_cases_growth_rate: nil)
         elsif current_update_cases > 0 && next_update_cases == 0
-          self.update_columns(case_growth_rate: current_update_case_growth_rate)
-          next_update.update_all(case_growth_rate: nil)
+          self.update_columns(new_cases_growth_rate: current_update_case_growth_rate)
+          next_update.update_all(new_cases_growth_rate: nil)
         else
-          self.update_columns(case_growth_rate: current_update_case_growth_rate)
-          next_update.update_all(case_growth_rate: next_update_cases_growth_rate)
+          self.update_columns(new_cases_growth_rate: current_update_case_growth_rate)
+          next_update.update_all(new_cases_growth_rate: next_update_cases_growth_rate)
         end
       end
 
       if next_update.present? && previous_update.empty?
         if current_update_cases == 0 || next_update_cases == 0
-          self.update_columns(case_growth_rate: nil)
-          next_update.update_all(case_growth_rate: nil)
+          self.update_columns(new_cases_growth_rate: nil)
+          next_update.update_all(new_cases_growth_rate: nil)
         else
-          self.update_columns(case_growth_rate: nil)
-          next_update.update_all(case_growth_rate: next_update_cases_growth_rate)
+          self.update_columns(new_cases_growth_rate: nil)
+          next_update.update_all(new_cases_growth_rate: next_update_cases_growth_rate)
         end
       end
     end
 
-    def calculate_daily_death_growth_rate
+    def calculate_new_deaths_growth_rate
       current_update  = Update.where(date: self.date)
       previous_update = Update.where(date: self.date-1.day)
       next_update     = Update.where(date: self.date+1.day)
@@ -81,33 +82,33 @@ class Update < ApplicationRecord
 
       if previous_update.present? && next_update.empty?
         if current_update_deaths == 0
-          self.update_columns(death_growth_rate: nil)
+          self.update_columns(new_deaths_growth_rate: nil)
         else
-          self.update_columns(death_growth_rate: current_update_death_growth_rate)
+          self.update_columns(new_deaths_growth_rate: current_update_death_growth_rate)
         end
       end
 
       if next_update.present? && previous_update.present?
         if current_update_deaths == 0
-          self.update_columns(death_growth_rate: nil)
-          next_update.update_all(death_growth_rate: nil)
+          self.update_columns(new_deaths_growth_rate: nil)
+          next_update.update_all(new_deaths_growth_rate: nil)
         elsif current_update_deaths > 0 && next_update_deaths == 0
-          self.update_columns(death_growth_rate: current_update_death_growth_rate)
-          next_update.update_all(death_growth_rate: nil)
+          self.update_columns(new_deaths_growth_rate: current_update_death_growth_rate)
+          next_update.update_all(new_deaths_growth_rate: nil)
         else
-          self.update_columns(death_growth_rate: current_update_death_growth_rate)
-          next_update.update_all(death_growth_rate: next_update_deaths_growth_rate)
+          self.update_columns(new_deaths_growth_rate: current_update_death_growth_rate)
+          next_update.update_all(new_deaths_growth_rate: next_update_deaths_growth_rate)
         end
       end
 
       if next_update.present? && previous_update.empty?
         if current_update_deaths == 0 || next_update_deaths == 0
-          self.update_columns(death_growth_rate: nil)
-          next_update.update_all(death_growth_rate: nil)
+          self.update_columns(new_deaths_growth_rate: nil)
+          next_update.update_all(new_deaths_growth_rate: nil)
         else
-          self.update_columns(death_growth_rate: nil)
+          self.update_columns(new_deaths_growth_rate: nil)
           binding.pry
-          next_update.update_all(death_growth_rate: next_update_deaths_growth_rate)
+          next_update.update_all(new_deaths_growth_rate: next_update_deaths_growth_rate)
         end
       end
     end

@@ -53,8 +53,9 @@ ActiveRecord::Schema.define(version: 2020_03_29_130232) do
     t.integer "deaths"
     t.integer "total_cases"
     t.integer "total_deaths"
-    t.decimal "case_growth_rate", precision: 5, scale: 2
-    t.decimal "death_growth_rate", precision: 5, scale: 2
+    t.decimal "new_cases_growth_rate", precision: 5, scale: 2
+    t.decimal "total_cases_growth_rate", precision: 5, scale: 2
+    t.decimal "new_deaths_growth_rate", precision: 5, scale: 2
     t.decimal "average_death_rate", precision: 5, scale: 2
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
