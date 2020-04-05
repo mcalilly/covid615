@@ -1,6 +1,7 @@
 class Update < ApplicationRecord
   default_scope { order(date: :desc) }
 
+  after_commit :calculate_total_cases
   after_commit :calculate_daily_case_growth_rate
   after_commit :calculate_daily_death_growth_rate
 
@@ -8,6 +9,12 @@ class Update < ApplicationRecord
   validates :date, uniqueness: true
 
   private
+
+    def calculate_total_cases
+      updates_through_today = Update.where(date: 100.years.ago..self.date)
+      total_cases_through_today = updates_through_today.sum(:cases).to_f
+      self.update_columns(total_cases: total_cases_through_today)
+    end
 
     def calculate_daily_case_growth_rate
       current_update  = Update.where(date: self.date)

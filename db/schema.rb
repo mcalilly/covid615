@@ -49,11 +49,13 @@ ActiveRecord::Schema.define(version: 2020_03_29_130232) do
   create_table "updates", force: :cascade do |t|
     t.bigint "county_id", null: false
     t.date "date"
-    t.string "source"
     t.integer "cases"
     t.integer "deaths"
+    t.integer "total_cases"
+    t.integer "total_deaths"
     t.decimal "case_growth_rate", precision: 5, scale: 2
     t.decimal "death_growth_rate", precision: 5, scale: 2
+    t.decimal "average_death_rate", precision: 5, scale: 2
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["county_id"], name: "index_updates_on_county_id"

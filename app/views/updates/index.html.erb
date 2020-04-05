@@ -7,8 +7,8 @@
   <ul class="my-4">
     <li>County ID: <%= update.county_id %></li>
     <li>Date: <%= update.date %></li>
-    <li>Source: <%= update.source %></li>
     <li>Cases: <%= update.cases %></li>
+    <li>Total Cases: <%= update.total_cases %></li>
     <li>Case Growth Rate: <%=  number_to_percentage(update.case_growth_rate.nil? ? "n/a" : update.case_growth_rate*100, precision: 0) %></li>
     <li>Deaths: <%= update.deaths %></li>
     <li>Deaths Growth Rate: <%=  number_to_percentage(update.death_growth_rate.nil? ? "n/a" : update.death_growth_rate*100, precision: 0) %></li>
@@ -16,4 +16,5 @@
     <li><%= link_to 'Edit', edit_update_path(update) %></li>
     <li><%= link_to 'Destroy', update, method: :delete, data: { confirm: 'Are you sure?' } %></li>
   </ul>
+  <hr>
 <% end %>
