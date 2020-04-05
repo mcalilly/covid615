@@ -3,11 +3,11 @@ class Update < ApplicationRecord
 
   default_scope { order(date: :desc) }
 
-  after_commit :calculate_total_cases
-  after_commit :calculate_new_cases_growth_rate
-  after_commit :calculate_total_cases_growth_rate
-  after_commit :calculate_total_deaths
-  after_commit :calculate_average_death_rate
+  after_save :calculate_total_cases
+  after_save :calculate_new_cases_growth_rate
+  after_save :calculate_total_cases_growth_rate
+  after_save :calculate_total_deaths
+  after_save :calculate_average_death_rate
 
   validates :date, uniqueness: true
 
@@ -26,11 +26,13 @@ class Update < ApplicationRecord
     end
 
     def calculate_average_death_rate
-      updates_through_today = Update.where(date: 100.years.ago..self.date)
-      total_cases_through_today = updates_through_today.sum(:cases).to_f
-      total_deaths_through_today = updates_through_today.sum(:deaths).to_f
-      current_average_death_rate = total_deaths_through_today / total_cases_through_today
-      self.update_columns(average_death_rate: current_average_death_rate)
+        updates_through_today = Update.where(date: 100.years.ago..self.date)
+        total_cases_through_today = updates_through_today.sum(:cases).to_f
+        total_deaths_through_today = updates_through_today.sum(:deaths).to_f
+        current_average_death_rate = total_deaths_through_today / total_cases_through_today
+        if self
+          self.update_columns(average_death_rate: current_average_death_rate)
+        end
     end
 
     def calculate_new_cases_growth_rate
