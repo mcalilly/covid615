@@ -1,8 +1,5 @@
 # Next Steps
 
-* Calculate total cases per day based on sum of all previous updates. Save this as an attribute on update. It should calculate after_commit when any update today or prior gets updated.
-* Calculate total cases growth rate per day based on the previous day's total cases. Should re-calculate if the current update or previous update changes.
-* Display total cases and total case change rates on the county show page
 * Forward covid615.com to the Davidson county
 * Set up dynamic page titles so that the page title is localized to each county and state
 * Use chart.js to chart new cases, total cases and deaths
