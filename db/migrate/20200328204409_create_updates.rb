@@ -3,8 +3,8 @@ class CreateUpdates < ActiveRecord::Migration[6.0]
     create_table :updates do |t|
       t.belongs_to :county, null: false, foreign_key: true
       t.date :date
-      t.integer :cases
-      t.integer :deaths
+      t.integer :new_cases
+      t.integer :new_deaths
       t.integer :total_cases
       t.integer :total_deaths
       t.decimal :new_cases_growth_rate, precision: 5, scale: 2

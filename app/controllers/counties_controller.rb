@@ -12,8 +12,8 @@ class CountiesController < ApplicationController
   def show
     @current_update = @county.updates.first
     @previous_update =  @county.updates.where(date: @current_update.date-1.day)
-    @current_update_new_cases = @current_update.cases
-    @previous_update_new_cases = @previous_update.sum(:cases)
+    @current_update_new_cases = @current_update.new_cases
+    @previous_update_new_cases = @previous_update.sum(:new_cases)
     @current_update_total_cases = @current_update.total_cases
     @previous_update_total_cases = @previous_update.sum(:total_cases)
     @current_update_total_deaths = @current_update.total_deaths

@@ -49,8 +49,8 @@ ActiveRecord::Schema.define(version: 2020_03_29_130232) do
   create_table "updates", force: :cascade do |t|
     t.bigint "county_id", null: false
     t.date "date"
-    t.integer "cases"
-    t.integer "deaths"
+    t.integer "new_cases"
+    t.integer "new_deaths"
     t.integer "total_cases"
     t.integer "total_deaths"
     t.decimal "new_cases_growth_rate", precision: 5, scale: 2

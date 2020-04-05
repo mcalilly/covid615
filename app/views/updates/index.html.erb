@@ -7,11 +7,11 @@
   <ul class="my-4">
     <li>County ID: <%= update.county_id %></li>
     <li>Date: <%= update.date %></li>
-    <li>New Cases: <%= update.cases %></li>
+    <li>New Cases: <%= update.new_cases %></li>
     <li>New Cases Growth Rate: <%=  number_to_percentage(update.new_cases_growth_rate.nil? ? "n/a" : update.new_cases_growth_rate*100, precision: 0) %></li>
     <li>Total Cases: <%= update.total_cases %></li>
     <li>Total Cases Growth Rate: <%=  number_to_percentage(update.total_cases_growth_rate.nil? ? "n/a" : update.total_cases_growth_rate*100, precision: 0) %></li>
-    <li>Deaths: <%= update.deaths %></li>
+    <li>Deaths: <%= update.new_deaths %></li>
     <li>New Deaths Growth Rate: <%= update.new_deaths_growth_rate %></li>
     <li>Total Deaths: <%= update.total_deaths %></li>
     <li>Total Deaths Growth Rate: <%=  number_to_percentage(update.new_deaths_growth_rate.nil? ? "n/a" : update.new_deaths_growth_rate*100, precision: 0) %></li>

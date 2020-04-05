@@ -5,6 +5,7 @@
 * Use chart.js to chart new cases, total cases and deaths
 * Add login and pundit so that only someone with an admin account can edit data
 * Create a background job that grabs the data from Johns Hopkins via the api at misssissippicovid.com
+* Add days since first case to the dashboard page
 
 
 ## Ideas for features

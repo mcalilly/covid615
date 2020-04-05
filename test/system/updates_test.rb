@@ -14,10 +14,10 @@ class UpdatesTest < ApplicationSystemTestCase
     visit updates_url
     click_on "New Update"
 
-    fill_in "Cases", with: @update.cases
+    fill_in "Cases", with: @update.new_cases
     fill_in "County", with: @update.county_id
     fill_in "Date", with: @update.date
-    fill_in "Deaths", with: @update.deaths
+    fill_in "Deaths", with: @update.new_deaths
     fill_in "Fips", with: @update.fips
     fill_in "Source", with: @update.source
     click_on "Create Update"
@@ -30,10 +30,10 @@ class UpdatesTest < ApplicationSystemTestCase
     visit updates_url
     click_on "Edit", match: :first
 
-    fill_in "Cases", with: @update.cases
+    fill_in "Cases", with: @update.new_cases
     fill_in "County", with: @update.county_id
     fill_in "Date", with: @update.date
-    fill_in "Deaths", with: @update.deaths
+    fill_in "Deaths", with: @update.new_deaths
     fill_in "Fips", with: @update.fips
     fill_in "Source", with: @update.source
     click_on "Update Update"

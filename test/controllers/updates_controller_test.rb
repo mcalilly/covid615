@@ -17,7 +17,7 @@ class UpdatesControllerTest < ActionDispatch::IntegrationTest
 
   test "should create update" do
     assert_difference('Update.count') do
-      post updates_url, params: { update: { cases: @update.cases, county_id: @update.county_id, date: @update.date, deaths: @update.deaths, fips: @update.fips, source: @update.source } }
+      post updates_url, params: { update: { cases: @update.new_cases, county_id: @update.county_id, date: @update.date, deaths: @update.new_deaths, fips: @update.fips, source: @update.source } }
     end
 
     assert_redirected_to update_url(Update.last)
@@ -34,7 +34,7 @@ class UpdatesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update update" do
-    patch update_url(@update), params: { update: { cases: @update.cases, county_id: @update.county_id, date: @update.date, deaths: @update.deaths, fips: @update.fips, source: @update.source } }
+    patch update_url(@update), params: { update: { cases: @update.new_cases, county_id: @update.county_id, date: @update.date, deaths: @update.new_deaths, fips: @update.fips, source: @update.source } }
     assert_redirected_to update_url(@update)
   end
 
