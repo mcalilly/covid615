@@ -1,13 +1,14 @@
 class Update < ApplicationRecord
+  belongs_to :county
+
   default_scope { order(date: :desc) }
 
   after_commit :calculate_total_cases
-  after_commit :calculate_total_deaths
   after_commit :calculate_new_cases_growth_rate
-  # after_commit :calculate_total_case_growth_rate
-  after_commit :calculate_new_deaths_growth_rate
+  after_commit :calculate_total_cases_growth_rate
+  after_commit :calculate_total_deaths
+  after_commit :calculate_average_death_rate
 
-  belongs_to :county
   validates :date, uniqueness: true
 
   private
@@ -22,6 +23,14 @@ class Update < ApplicationRecord
       updates_through_today = Update.where(date: 100.years.ago..self.date)
       total_deaths_through_today = updates_through_today.sum(:deaths).to_f
       self.update_columns(total_deaths: total_deaths_through_today)
+    end
+
+    def calculate_average_death_rate
+      updates_through_today = Update.where(date: 100.years.ago..self.date)
+      total_cases_through_today = updates_through_today.sum(:cases).to_f
+      total_deaths_through_today = updates_through_today.sum(:deaths).to_f
+      current_average_death_rate = total_deaths_through_today / total_cases_through_today
+      self.update_columns(average_death_rate: current_average_death_rate)
     end
 
     def calculate_new_cases_growth_rate
@@ -68,47 +77,46 @@ class Update < ApplicationRecord
       end
     end
 
-    def calculate_new_deaths_growth_rate
+    def calculate_total_cases_growth_rate
       current_update  = Update.where(date: self.date)
       previous_update = Update.where(date: self.date-1.day)
       next_update     = Update.where(date: self.date+1.day)
 
-      current_update_deaths  = current_update.sum(:deaths).to_f
-      previous_update_deaths = previous_update.sum(:deaths).to_f
-      next_update_deaths = next_update.sum(:deaths).to_f
+      current_update_total_cases  = current_update.sum(:total_cases).to_f
+      previous_update_total_cases = previous_update.sum(:total_cases).to_f
+      next_update_total_cases = next_update.sum(:total_cases).to_f
 
-      current_update_death_growth_rate = (current_update_deaths - previous_update_deaths) / previous_update_deaths
-      next_update_deaths_growth_rate = (next_update_deaths - current_update_deaths) / current_update_deaths
+      current_update_total_cases_growth_rate = (current_update_total_cases - previous_update_total_cases) / previous_update_total_cases
+      next_update_total_cases_growth_rate = (next_update_total_cases - current_update_total_cases) / current_update_total_cases
 
       if previous_update.present? && next_update.empty?
-        if current_update_deaths == 0
-          self.update_columns(new_deaths_growth_rate: nil)
+        if current_update_total_cases == 0
+          self.update_columns(total_cases_growth_rate: nil)
         else
-          self.update_columns(new_deaths_growth_rate: current_update_death_growth_rate)
+          self.update_columns(total_cases_growth_rate: current_update_total_cases_growth_rate)
         end
       end
 
       if next_update.present? && previous_update.present?
-        if current_update_deaths == 0
-          self.update_columns(new_deaths_growth_rate: nil)
-          next_update.update_all(new_deaths_growth_rate: nil)
-        elsif current_update_deaths > 0 && next_update_deaths == 0
-          self.update_columns(new_deaths_growth_rate: current_update_death_growth_rate)
-          next_update.update_all(new_deaths_growth_rate: nil)
+        if current_update_total_cases == 0
+          self.update_columns(total_cases_growth_rate: nil)
+          next_update.update_all(total_cases_growth_rate: nil)
+        elsif current_update_total_cases > 0 && next_update_total_cases == 0
+          self.update_columns(total_cases_growth_rate: current_update_total_cases_growth_rate)
+          next_update.update_all(total_cases_growth_rate: nil)
         else
-          self.update_columns(new_deaths_growth_rate: current_update_death_growth_rate)
-          next_update.update_all(new_deaths_growth_rate: next_update_deaths_growth_rate)
+          self.update_columns(total_cases_growth_rate: current_update_total_cases_growth_rate)
+          next_update.update_all(total_cases_growth_rate: next_update_total_cases_growth_rate)
         end
       end
 
       if next_update.present? && previous_update.empty?
-        if current_update_deaths == 0 || next_update_deaths == 0
-          self.update_columns(new_deaths_growth_rate: nil)
-          next_update.update_all(new_deaths_growth_rate: nil)
+        if current_update_total_cases == 0 || next_update_total_cases == 0
+          self.update_columns(total_cases_growth_rate: nil)
+          next_update.update_all(total_cases_growth_rate: nil)
         else
-          self.update_columns(new_deaths_growth_rate: nil)
-          binding.pry
-          next_update.update_all(new_deaths_growth_rate: next_update_deaths_growth_rate)
+          self.update_columns(total_cases_growth_rate: nil)
+          next_update.update_all(total_cases_growth_rate: next_update_total_cases)
         end
       end
     end

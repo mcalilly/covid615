@@ -11,12 +11,12 @@
 </p>
 
 <p>
-  <strong>Cases:</strong>
+  <strong>New Cases:</strong>
   <%= @update.cases %>
 </p>
 
 <p>
-  <strong>Cases Growth Rate:</strong>
+  <strong>New Cases Growth Rate:</strong>
   <%= @update.new_cases_growth_rate %>
 </p>
 
@@ -26,13 +26,28 @@
 </p>
 
 <p>
+  <strong>Total Cases Growth Rate:</strong>
+  <%= @update.total_cases_growth_rate %>
+</p>
+
+<p>
   <strong>Deaths:</strong>
   <%= @update.deaths %>
 </p>
 
 <p>
+  <strong>New Deaths Growth Rate:</strong>
+  <%= @update.new_deaths_growth_rate %>
+</p>
+
+<p>
   <strong>Total Deaths:</strong>
   <%= @update.total_deaths %>
+</p>
+
+<p>
+  <strong>Current Average Death Rate:</strong>
+  <%= @update.average_death_rate %>
 </p>
 
 <%= link_to 'Edit', edit_update_path(@update) %> |
