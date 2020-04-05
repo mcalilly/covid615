@@ -8,9 +8,10 @@ Rails.application.routes.draw do
   resources :counties
 
   # Public Marketing Pages
- root "marketing#nashville"
+ root to: redirect("/counties/davidson")
+ get '/nashville', to: redirect("/counties/davidson")
+
  get "/about" => "marketing#about", as: "about"
  get "/get-involved" => "marketing#get_involved", as: "get_involved"
- get "/nashville" => "marketing#nashville", as: "nashville"
 
 end
