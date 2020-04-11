@@ -39,7 +39,7 @@
               </td>
 
               <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-500">
-                <%= update.new_cases %>
+                <%= number_with_delimiter(update.new_cases) %>
 
                 <% if update.new_cases_growth_rate.present? && update.new_cases_growth_rate < 0 %>
                   <div class="inline-flex items-baseline ml-2 text-xs leading-5 font-semibold text-green-400">
@@ -49,7 +49,7 @@
                     <span class="sr-only">
                       Decreased by
                     </span>
-                    <%=  number_to_percentage(update.new_cases_growth_rate*100, precision: 0) %>
+                    <%=  number_to_percentage(update.new_cases_growth_rate*100, precision: 0, delimiter: ',') %>
                   </div>
                 <% elsif update.new_cases_growth_rate.present? && update.new_cases_growth_rate > 0 %>
                   <div class="inline-flex items-baseline ml-2 text-xs leading-5 font-semibold text-red-400">
@@ -59,12 +59,12 @@
                     <span class="sr-only">
                       Increased by
                     </span>
-                    <%=  number_to_percentage(update.new_cases_growth_rate*100, precision: 0) %>
+                    <%=  number_to_percentage(update.new_cases_growth_rate*100, precision: 0, delimiter: ',') %>
                   </div>
                 <% end %>
               </td>
               <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-500">
-                <%= update.total_cases %>
+                <%= number_with_delimiter(update.total_cases) %>
 
                 <% if update.total_cases_growth_rate.present? && update.total_cases_growth_rate < 0 %>
                   <div class="inline-flex items-baseline ml-2 text-xs leading-5 font-semibold text-green-400">
@@ -74,7 +74,7 @@
                     <span class="sr-only">
                       Decreased by
                     </span>
-                    <%=  number_to_percentage(update.total_cases_growth_rate*100, precision: 0) %>
+                    <%=  number_to_percentage(update.total_cases_growth_rate*100, precision: 0, delimiter: ',') %>
                   </div>
                 <% elsif update.total_cases_growth_rate.present? && update.total_cases_growth_rate > 0 %>
                   <div class="inline-flex items-baseline ml-2 text-xs leading-5 font-semibold text-red-400">
@@ -84,15 +84,15 @@
                     <span class="sr-only">
                       Increased by
                     </span>
-                    <%=  number_to_percentage(update.total_cases_growth_rate*100, precision: 0) %>
+                    <%=  number_to_percentage(update.total_cases_growth_rate*100, precision: 0, delimiter: ',') %>
                   </div>
                 <% end %>
               </td>
               <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-500">
-                <%= update.new_deaths %>
+                <%= number_with_delimiter(update.new_deaths) %>
               </td>
               <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-500">
-                <%= update.total_deaths %>
+                <%= number_with_delimiter(update.total_deaths) %>
               </td>
             </tr>
           <% end %>

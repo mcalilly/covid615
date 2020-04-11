@@ -1,6 +1,18 @@
 <h4 class="text-center text-sm uppercase font-semibold tracking-wider text-gray-500 mt-16 text-center">
+  Growth Rate of New Cases
+</h4>
+
+<div class="py-8">
+  <%=
+      area_chart @county.updates.group(:date).sum(:new_cases_growth_rate),
+      colors: ["#48BB78"]
+  %>
+</div>
+
+<h4 class="text-center text-sm uppercase font-semibold tracking-wider text-gray-500 mt-16 text-center">
   Total Cases
 </h4>
+
 
 <div class="py-8">
   <%=
