@@ -3,7 +3,7 @@
 <h1>Updates</h1>
 <%= link_to 'New Update', new_update_path %>
 
-<% @updates.order('created_at DESC').each do |update| %>
+<% @updates.order('date DESC').each do |update| %>
   <ul class="my-4">
     <li>County ID: <%= update.county_id %></li>
     <li>Date: <%= update.date %></li>
