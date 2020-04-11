@@ -23,7 +23,7 @@
         </thead>
 
         <tbody>
-          <% @county.updates.each do |update| %>
+          <% @county.updates.order('created_at DESC').each do |update| %>
             <tr class="<%= cycle("bg-white", "bg-gray-50") %>">
               <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 font-medium text-gray-900">
                 <%= update.date.strftime("%B %e") %>
