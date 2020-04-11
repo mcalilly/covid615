@@ -1,7 +1,7 @@
 class Update < ApplicationRecord
   belongs_to :county
 
-  default_scope { order(date: :desc) }
+  # default_scope { order(date: :desc) }
 
   after_save :calculate_total_cases
   after_save :calculate_new_cases_growth_rate

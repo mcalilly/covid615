@@ -1,43 +1,11 @@
-<!-- Chart.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js" defer></script>
 
-<canvas id="myChart" width="400" height="400"></canvas>
-<script>
-window.onload = () => {
-  var ctx = document.getElementById('myChart').getContext('2d');
+<h4 class="text-center text-sm uppercase font-semibold tracking-wider text-gray-500 mt-16 text-center">
+  Total Cases by Day
+</h4>
 
-  var myChart = new Chart(ctx, {
-      type: 'line',
-      data: {
-          labels: [
-            <%= @county.updates.map {|update| update.date}.join(",") %>
-          ],
-
-          datasets: [{
-              label: "Total Cases",
-              data: [
-                <%= @county.updates.map {|update| update.total_cases}.join(",") %>
-              ],
-              backgroundColor: [
-                  'rgba(255, 99, 132, 0.2)'
-              ],
-              borderColor: [
-                  'rgba(255, 99, 132, 1)'
-              ],
-              borderWidth: 1
-          }]
-      },
-      options: {
-          scales: {
-              yAxes: [{
-                  ticks: {
-                      beginAtZero: true
-                  }
-              }]
-          }
-      }
-  });
-}
-</script>
-
-<%= @county.updates.map {|update| update.date.strftime("%b %e")}.join(", ") %>
+<div class="py-8">
+  <%=
+      area_chart @county.updates.group(:date).sum(:total_cases),
+      colors: ["#5A67D8"]
+  %>
+</div>
