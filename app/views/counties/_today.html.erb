@@ -11,10 +11,10 @@
           </dt>
           <dd class="mt-1 flex justify-between items-baseline md:block lg:flex">
             <div class="flex items-baseline text-2xl leading-8 font-semibold text-indigo-600">
-              <%= @current_update_new_cases %>
+              <%= number_with_delimiter(@current_update_new_cases) %>
 
               <span class="ml-2 text-sm leading-5 font-medium text-gray-500">
-                from <%= @previous_update_new_cases %>
+                from <%= number_with_delimiter(@previous_update_new_cases) %>
               </span>
             </div>
 
@@ -51,9 +51,9 @@
           </dt>
           <dd class="mt-1 flex justify-between items-baseline md:block lg:flex">
             <div class="flex items-baseline text-2xl leading-8 font-semibold text-indigo-600">
-              <%= @current_update_total_cases %>
+              <%= number_with_delimiter(@current_update_total_cases) %>
               <span class="ml-2 text-sm leading-5 font-medium text-gray-500">
-                from <%= @previous_update_total_cases %>
+                from <%= number_with_delimiter(@previous_update_total_cases) %>
               </span>
             </div>
 
@@ -90,7 +90,7 @@
           </dt>
           <dd class="mt-1 flex justify-between items-baseline md:block lg:flex">
             <div class="flex items-baseline text-2xl leading-8 font-semibold text-indigo-600">
-              <%= @current_update_total_deaths %>
+              <%= number_with_delimiter(@current_update_total_death) %>
             </div>
 
             <div class="inline-flex items-baseline px-2.5 py-0.5 rounded-full text-sm font-medium leading-5 bg-red-100 text-red-800 md:mt-2 lg:mt-0">
