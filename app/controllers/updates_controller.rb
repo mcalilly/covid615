@@ -10,6 +10,8 @@ class UpdatesController < ApplicationController
   # GET /updates/1
   # GET /updates/1.json
   def show
+    @raw_data = HTTParty.get("https://www.mississippicovid.com/api/v1/chronological/counties?state=#{@update.county.state.name}&county=#{@update.county.name}",
+    :headers =>{'Content-Type' => 'application/json'} )
   end
 
   # GET /updates/new

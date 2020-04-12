@@ -1,4 +1,6 @@
 class Update < ApplicationRecord
+  include HTTParty
+
   belongs_to :county
 
   after_save :calculate_total_cases
