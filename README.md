@@ -1,4 +1,5 @@
 # Next Steps
+* Write a rake task that can be run to load all of the States and Counties into the db - https://thoughtbot.com/blog/data-migrations-in-rails
 * Create a background job that grabs the data from Johns Hopkins via the api at misssissippicovid.com
   1. first, get this working in the County update action
   2. then, figure out how to make it a job

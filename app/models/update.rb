@@ -3,11 +3,11 @@ class Update < ApplicationRecord
 
   belongs_to :county
 
-  after_save :calculate_total_cases
-  after_save :calculate_new_cases_growth_rate
-  after_save :calculate_total_cases_growth_rate
-  after_save :calculate_total_deaths
-  after_save :calculate_average_death_rate
+  after_save  :calculate_total_cases
+  after_save  :calculate_new_cases_growth_rate
+  after_save  :calculate_total_cases_growth_rate
+  after_save  :calculate_total_deaths
+  after_save  :calculate_average_death_rate
 
   validates :date, uniqueness: true
 
