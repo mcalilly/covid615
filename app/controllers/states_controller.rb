@@ -1,4 +1,5 @@
 class StatesController < ApplicationController
+  http_basic_authenticate_with :name => Rails.application.credentials.login[:name], :password => Rails.application.credentials.login[:password], except: :show
   before_action :set_state, only: [:show, :edit, :update, :destroy]
 
   # GET /states

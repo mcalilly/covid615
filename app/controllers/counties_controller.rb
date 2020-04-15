@@ -1,4 +1,5 @@
 class CountiesController < ApplicationController
+  http_basic_authenticate_with :name => Rails.application.credentials.login[:name], :password => Rails.application.credentials.login[:password], except: :show
   before_action :set_county, only: [:show, :edit, :update, :destroy]
 
   # GET /counties
