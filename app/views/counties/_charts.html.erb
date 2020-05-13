@@ -27,7 +27,7 @@
 
 <div class="py-8">
   <%=
-      column_chart @county.updates.group(:date).sum(:new_deaths),
+      area_chart @county.updates.group(:date).sum(:new_deaths),
       colors: ["#ED8936"]
   %>
 </div>
