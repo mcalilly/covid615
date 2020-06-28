@@ -21,6 +21,10 @@ namespace :fetch_update do
       @no_data_warning = "Warning: data today is not being successfully fetched from asafenashville.org. The html on the page might have changed."
       puts "#{@no_data_warning}"
       Rails.logger.info "#{@no_data_warning}"
+    elsif total_cases_today_formatted.class != Integer || total_deaths_today_formatted.class != Integer
+      @incorrect_data_warning = "Warning: data fetched today was not an integer, so we need to check asafenashville.org manually."
+      puts "#{@incorrect_data_warning}"
+      Rails.logger.info "#{@incorrect_data_warning}"
     elsif total_cases_today_formatted == total_cases_yesterday
       @same_data_warning = "Warning: Today's total case count is the same as yesterday. Double-check asafenashville.org because something is wrong or the virus is over."
       puts "#{@same_data_warning}"
