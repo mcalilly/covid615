@@ -1,3 +1,6 @@
+# Notes
+* run `heroku run rake fetch_update:nashville` to pull the updates manually. (This should be handled daily at 10:30am CST by Heroku Scheduler)
+
 # Next Steps
 * Write a rake task that can be run to load all of the States and Counties into the db - https://thoughtbot.com/blog/data-migrations-in-rails
 * Create a background job that grabs the data from Johns Hopkins via the api at misssissippicovid.com

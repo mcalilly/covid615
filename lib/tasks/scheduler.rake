@@ -30,6 +30,7 @@ namespace :fetch_update do
       puts "#{@same_data_warning}"
       Rails.logger.info "#{@same_data_warning}"
       # To-do: Trigger a warning email to double-check this
+      # To-do: Trigger a specific kind of subscriber email when this happens
     else
       @new_cases_today = total_cases_today_formatted - total_cases_yesterday
       @new_deaths_today = total_deaths_today_formatted - total_deaths_yesterday
