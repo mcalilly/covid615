@@ -1,5 +1,6 @@
 # Notes
-* run `heroku run rake fetch_update:nashville` to pull the updates manually. (This should be handled daily at 10:30am CST by Heroku Scheduler)
+* run `heroku run rake fetch_update:nashville` to pull the updates manually. (This should be handled daily at 10:00am CST by Heroku Scheduler)
+* run `heroku run rake fetch_update:warning` to pull test sending the admin mailer when there's not a new update (this is scheduled for 11am CST).
 
 # Next Steps
 * Create a mailer to send admins warnings if something hasn't posted

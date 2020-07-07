@@ -29,12 +29,9 @@ namespace :fetch_update do
       @same_data_warning = "Warning: Today's total case count is the same as yesterday. Double-check asafenashville.org because something is wrong or the virus is over."
       puts "#{@same_data_warning}"
       Rails.logger.info "#{@same_data_warning}"
-      # To-do: Trigger a warning email to double-check this
-      # To-do: Trigger a specific kind of subscriber email when this happens
     else
       @new_cases_today = total_cases_today_formatted - total_cases_yesterday
       @new_deaths_today = total_deaths_today_formatted - total_deaths_yesterday
-      # Update.create!(county_id: 1, date: Date.today.strftime("%Y-%m-%d"), new_cases: @new_cases_today, new_deaths: @new_deaths_today)
 
       @update = Update.new(county_id: 1, date: Date.today.strftime("%Y-%m-%d"), new_cases: @new_cases_today, new_deaths: @new_deaths_today)
       @update.save
