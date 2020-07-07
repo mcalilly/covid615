@@ -5,7 +5,7 @@ namespace :fetch_update do
 
     latest_update = Update.last
 
-    if latest_update.date.strftime("%B %e, %Y") != Time.now.in_time_zone("Central Time (US & Canada)").strftime("%B %e, %Y")
+    if latest_update.date.strftime("%B %e, %Y") == Time.now.in_time_zone("Central Time (US & Canada)").strftime("%B %e, %Y")
       puts "Warning: today's update was not saved."
       AdminMailer.no_update.deliver_now
     else
