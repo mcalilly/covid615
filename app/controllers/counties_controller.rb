@@ -17,6 +17,7 @@ class CountiesController < ApplicationController
     @previous_update_new_cases = @previous_update.sum(:new_cases)
     @current_update_total_cases = @current_update.total_cases
     @previous_update_total_cases = @previous_update.sum(:total_cases)
+    @current_update_new_deaths = @current_update.new_deaths
     @current_update_total_deaths = @current_update.total_deaths
   end
 
