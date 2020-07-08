@@ -1,5 +1,5 @@
 class SubscribersController < ApplicationController
-  http_basic_authenticate_with :name => Rails.application.credentials.login[:name], :password => Rails.application.credentials.login[:password]
+  http_basic_authenticate_with :name => Rails.application.credentials.login[:name], :password => Rails.application.credentials.login[:password], except: [:new, :create]
   before_action :set_subscriber, only: [:show, :edit, :update, :destroy]
 
   # GET /subscribers
