@@ -1,0 +1,28 @@
+<section class="subscribe overflow-hidden mx-auto max-w-md pt-4 pb-6 px-4 mt-12 bg-indigo-100 shadow-sm rounded-lg">
+  <% if notice %>
+    <div class="my-2 py-4 px-4">
+      <h4 class="text-lg">
+        <%= notice %>
+      </h4>
+      <p class="text-sm mt-2">
+        You're on the list now! Each morning at 10:30am CST we'll send you a brief email with Metro Nashville's Covid-19 numbers for the day.
+      </p>
+    </div>
+  <% else %>
+    <h4 class="text-lg">
+      Get Daily Updates
+    </h4>
+    <p class="text-sm mt-2">
+      Get a daily email with Nashville's morning Covid-19 numbers when Metro posts them. No spam, just a daily update with the numbers delivered to your inbox.
+    </p>
+
+    <%= form_with model: @subscriber, class: "w-full mt-8" do |f| %>
+      <%= render 'shared/error_messages', object: f.object %>
+
+      <fieldset class="flex items-center border-b border-b-2 border-indigo-500 py-2">
+        <%= f.text_field :email, class: "appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none", placeholder: "elvis@hey.com" %>
+        <%= f.submit "Subscribe",  class: "flex-shrink-0 cursor-pointer bg-indigo-500 hover:bg-indigo-700 border-indigo-500 hover:border-indigo-700 text-sm border-4 text-white py-1 px-2 rounded" %>
+      </fieldset>
+    <% end %>
+  <% end %>
+</section>

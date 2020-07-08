@@ -1,42 +1,44 @@
-<h4 class="text-center text-sm uppercase font-semibold tracking-wider text-gray-500 mt-16 text-center">
-  Total Cases
-</h4>
+<section id="charts">
+  <h4 class="text-center text-sm uppercase font-semibold tracking-wider text-gray-500 mt-16 text-center">
+    Total Cases
+  </h4>
 
-<div class="py-8">
-  <%=
-      area_chart @county.updates.group(:date).sum(:total_cases),
-      colors: ["#5A67D8"]
-  %>
-</div>
+  <div class="py-8">
+    <%=
+        area_chart @county.updates.group(:date).sum(:total_cases),
+        colors: ["#5A67D8"]
+    %>
+  </div>
 
-<h4 class="text-center text-sm uppercase font-semibold tracking-wider text-gray-500 mt-8 text-center">
-  New Cases Per Day
-</h4>
+  <h4 class="text-center text-sm uppercase font-semibold tracking-wider text-gray-500 mt-8 text-center">
+    New Cases Per Day
+  </h4>
 
-<div class="py-8">
-  <%=
-      area_chart @county.updates.group(:date).sum(:new_cases),
-      colors: ["#ECC94B"]
-  %>
-</div>
+  <div class="py-8">
+    <%=
+        area_chart @county.updates.group(:date).sum(:new_cases),
+        colors: ["#ECC94B"]
+    %>
+  </div>
 
-<h4 class="text-center text-sm uppercase font-semibold tracking-wider text-gray-500 mt-8 text-center">
-  Total Deaths
-</h4>
-<div class="py-8">
-  <%=
-      area_chart @county.updates.group(:date).sum(:total_deaths),
-      colors: ["#dc3545"]
-  %>
-</div>
+  <h4 class="text-center text-sm uppercase font-semibold tracking-wider text-gray-500 mt-8 text-center">
+    Total Deaths
+  </h4>
+  <div class="py-8">
+    <%=
+        area_chart @county.updates.group(:date).sum(:total_deaths),
+        colors: ["#dc3545"]
+    %>
+  </div>
 
-<h4 class="text-center text-sm uppercase font-semibold tracking-wider text-gray-500 mt-8 text-center">
-  New Deaths Per Day
-</h4>
+  <h4 class="text-center text-sm uppercase font-semibold tracking-wider text-gray-500 mt-8 text-center">
+    New Deaths Per Day
+  </h4>
 
-<div class="py-8">
-  <%=
-      area_chart @county.updates.group(:date).sum(:new_deaths),
-      colors: ["#ED8936"]
-  %>
-</div>
+  <div class="py-8">
+    <%=
+        area_chart @county.updates.group(:date).sum(:new_deaths),
+        colors: ["#ED8936"]
+    %>
+  </div>
+</section>
