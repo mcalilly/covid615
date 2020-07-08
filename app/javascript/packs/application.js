@@ -8,5 +8,8 @@ require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
 
+// Taiwind UI
+require("alpinejs")
+
 require("chartkick")
 require("chart.js")
