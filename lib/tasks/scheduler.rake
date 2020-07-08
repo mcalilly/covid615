@@ -40,6 +40,7 @@ namespace :fetch_update do
         @success_message = "A new update was created by the webscraper on #{Date.today.strftime("%a, %e %b %Y")}"
         puts "#{@success_message}"
         Rails.logger.info "#{@success_message}"
+        SubscribersMailer.send_daily_updates.deliver_now
       else
         @success_message = "A new update was created by the webscraper on #{Date.today.strftime("%a, %e %b %Y")}"
         puts "#{@success_message}"
