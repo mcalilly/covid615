@@ -1,10 +1,10 @@
 class SubscriberMailer < ApplicationMailer
 
   def send_daily_updates
-    @subscribers = Subscribers.all
+    @subscribers = Subscriber.all
 
     @todays_update = Update.last
-    @yesterdays_update = Update.where(date: @current_update.date-1.day)
+    @yesterdays_update = Update.where(date: @todays_update.date-1.day)
 
     @todays_cases = @todays_update.new_cases
     @yesterdays_cases = @yesterdays_update.new_cases

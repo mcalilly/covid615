@@ -15,4 +15,5 @@ namespace :fetch_update do
       AdminMailer.update_posted.deliver_now
     end
   end
+
 end
