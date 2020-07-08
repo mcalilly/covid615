@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   # Public Marketing Pages
  root to: redirect("/counties/davidson")
  get '/nashville', to: redirect("/counties/davidson")
+ get '/subscribe', to: redirect("/counties/davidson#subscribe")
 
  get "/about" => "marketing#about", as: "about"
  get "/get-involved" => "marketing#get_involved", as: "get_involved"
