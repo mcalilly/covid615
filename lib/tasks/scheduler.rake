@@ -8,7 +8,7 @@ namespace :fetch_update do
 
     # Parse the response
     ## Total cases
-    total_cases_today_raw = page_html.css(".home #main-wrapper .homeLower .question table:nth-child(5) tr:nth-child(2) td:nth-child(2)").text
+    total_cases_today_raw = page_html.css(".home #main-wrapper .homeLower table:nth-child(6) tr:nth-child(2) td:nth-child(2)").text
     total_cases_today_formatted = total_cases_today_raw.gsub(/[\s,]/ ,"").to_i
     total_cases_yesterday = Update.last.total_cases
 
