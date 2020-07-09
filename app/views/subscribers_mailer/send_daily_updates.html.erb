@@ -1,5 +1,7 @@
-<h4>Covid-19 Daily Update</h4>
-<h5>Nashville, TN &bull; <%= Time.now.in_time_zone("Central Time (US & Canada)").strftime("%B %e, %Y") %></h5>
+<h4>
+  Covid-19 Daily Update<br>
+  <small>Nashville, TN &bull; <%= Time.now.in_time_zone("Central Time (US & Canada)").strftime("%B %e, %Y") %></small>
+</h4>
 <p>
   New Cases: <strong><%= @todays_cases %></strong><br>
   Cases Yesterday: <strong><%= @yesterdays_cases %></strong><br>
@@ -25,10 +27,10 @@
 <hr>
 <small>
   <p>
-    <a href="https://covid615.com">Covid615</a> was built and launched in just a few days by me, Lee McAlilly of <a href="https://mcalilly.com">McAlilly Creative Partners</a>, a web design & development agency in Nashville, TN. Once Metro starting sharing the daily Covid numbers I found myself wanting to see how these numbers were changing over time, so I built a dashboard to provide some context around the Mayor's daily update.
+    <a href="https://covid615.com">Covid615</a> was built and launched in just a few days by me, Lee McAlilly, of <a href="https://mcalilly.com">McAlilly Creative Partners</a>, a web design & development agency in Nashville, TN. Once Metro starting sharing the daily Covid numbers I found myself wanting to see how these numbers were changing over time, so I built a dashboard to provide some context around the Mayor's daily update.
   </p>
   <p>
-    If you've found this useful please consider <a href="mailto:leemc@hey.com">hiring me</a> for your next web project, or recommending me to your friends the next time they need help with a website or custom software.
+    If you've found this useful please consider <a href="mailto:leemc@hey.com">hiring me</a> for your next project, or recommending me to your friends the next time they need help with a website or custom software.
   </p>
 
   <p>If you'd like to unsubscribe, just reply to this email to let me know and I'll remove you.</p>
