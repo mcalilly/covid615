@@ -12,7 +12,12 @@ namespace :fetch_update do
       success_message = "Today's update was saved successfully!"
       puts "#{success_message}"
       Rails.logger.info "#{success_message}"
+
+      # Send to subscribers list
       SubscribersMailer.send_daily_updates.deliver_now
+  
+      # Notify admin
+      AdminMailer.update_posted.deliver_now
     end
   end
 

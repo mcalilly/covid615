@@ -11,8 +11,11 @@ class SubscribersMailer < ApplicationMailer
     @new_deaths = @todays_update.new_deaths
     @total_deaths = @todays_update.total_deaths
 
+    @subscribers = Subscriber.all
+    recipients = @subscribers.collect(&:email).join(",")
+
     @subscribers.each do |subscriber|
-      mail(to: subscriber.email, subject:  "#{Time.now.in_time_zone("Central Time (US & Canada)").strftime("%B %e, %Y")} • Covid-19 Daily Update for Nashville, TN")
+      mail(to: "leemc@hey.com", subject:  "#{Time.now.in_time_zone("Central Time (US & Canada)").strftime("%B %e, %Y")} • Covid-19 Daily Update for Nashville, TN", :bcc => recipients)
     end
   end
 
