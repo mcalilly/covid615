@@ -1,7 +1,7 @@
-namespace :fetch_update do
+namespace :daily_updates do
 
-  desc "send a warning to admin if today's update isn't saved"
-  task notify_admin: :environment do
+  desc "sends the daily update email or a warning to admin if today's update isn't saved"
+  task send_scheduled_notifications: :environment do
 
     latest_update = Update.last
 
@@ -14,10 +14,9 @@ namespace :fetch_update do
       Rails.logger.info "#{success_message}"
 
       # Send to subscribers list
-      SubscribersMailer.send_daily_updates.deliver_now
-  
-      # Notify admin
-      AdminMailer.update_posted.deliver_now
+      Subscriber.find_each do |subscriber|
+        SubscribersMailer.send_daily_updates(subscriber).deliver_now
+      end
     end
   end
 

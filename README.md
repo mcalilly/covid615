@@ -1,7 +1,7 @@
 # Notes
 * run `rake fetch_update:nashville` to pull the updates manually. (This should be handled daily at 10:00am CST by Heroku Scheduler)
-* run `rake subscribers:send_daily_updates` to manually send the latest update to all subscribers.
-* run `rake fetch_update:notify_admin` to pull test sending the admin mailer when there's not a new update (this is scheduled for 11am CST).
+* run `rake daily_updates:send_subscriber_emails` to manually send the latest update to all subscribers.
+* run `rake daily_updates:send_scheduled_notifications` to pull test sending the admin mailer when there's not a new update (this is scheduled for 11am CST).
 
 # Next Steps
 * Create a mailer to send admins warnings if something hasn't posted
