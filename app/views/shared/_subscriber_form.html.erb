@@ -1,25 +1,25 @@
-<section id="subscribe" class="overflow-hidden mx-auto max-w-md pt-4 pb-6 px-4 mt-8 bg-indigo-50 shadow-sm rounded-lg">
+<section id="subscribe" class="overflow-hidden mx-auto max-w-md font-mono pt-4 pb-6 px-4 mt-8 bg-indigo-50 shadow-sm rounded-lg">
 
-  <p class="text-xs font-mono text-center">Data is pulled every morning at 10am CST from <a target="_blank" class="text-indigo-400" href="https://www.asafenashville.org">Metro Nashville's Covid-19</a> response website.</p>
+  <p class="text-xs border-solid border-indigo-100 border-b-2 text-center mt-4 pb-4">Data is pulled every morning at 10am CST from <a target="_blank" class="text-indigo-400" href="https://www.asafenashville.org">Metro Nashville's Covid-19</a> response website.</p>
 
   <% if notice %>
-    <div class="my-2 py-4 px-4">
+    <div class="my-2 px-4">
       <h4 class="text-lg text-center">
         <%= notice %>
       </h4>
-      <p class="text-sm mt-2">
+      <p class="text-xs mt-2">
         You're on the list now! Each morning at 10:30am CST we'll send you a brief email with Metro Nashville's Covid-19 numbers for the day.
       </p>
     </div>
   <% else %>
-    <h4 class="text-lg text-center mt-8">
+    <h4 class="text-base text-center mt-6">
       Get Daily Updates
     </h4>
-    <p class="text-sm mt-2">
+    <p class="text-xs mt-2">
       Get a daily email with Nashville's morning Covid-19 numbers when Metro posts them. It's nothing but a simple daily update with the numbers delivered to your inbox.
     </p>
 
-    <%= form_with model: @subscriber, class: "w-full mt-8" do |f| %>
+    <%= form_with model: @subscriber, class: "w-full mt-8 mb-4" do |f| %>
       <%= render 'shared/error_messages', object: f.object %>
 
       <fieldset class="flex items-center border-b border-b-2 border-indigo-500 py-2">
