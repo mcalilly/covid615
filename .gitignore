@@ -12,7 +12,7 @@
 /db/*.sqlite3-0
 /db/*.sqlite3-1
 /db/*.sqlite3-journal
-
+latest.dump
 
 # Ignore all logfiles and tempfiles.
 /log
