@@ -12,7 +12,7 @@ class SubscribersMailer < ApplicationMailer
     @total_deaths = @todays_update.total_deaths
 
     # Send the email
-    mail(to: subscriber.email, subject: "#{Time.now.in_time_zone("Central Time (US & Canada)").strftime("%B %e, %Y")} • Covid-19 Daily Update for Nashville, TN")
+    mail(to: subscriber.email, subject: "Covid-19 Daily Update for Nashville • #{Time.now.in_time_zone("Central Time (US & Canada)").strftime("%b %e")}")
   end
 
 end
