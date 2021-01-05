@@ -26,7 +26,11 @@
           <% @county.updates.order('date DESC').each do |update| %>
             <tr class="<%= cycle("bg-white", "bg-gray-50") %>">
               <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 font-medium text-gray-900">
-                <%= update.date.strftime("%B %e") %>
+                <% if Time.current.strftime("%Y") == update.date.strftime("%Y") %>
+                  <%= update.date.strftime("%B %e") %>
+                <% else %>
+                  <%= update.date.strftime("%B %e") %>, <%= update.date.strftime("%Y") %>
+                <% end %>
               </td>
 
               <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-500">
