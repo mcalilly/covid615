@@ -13,7 +13,7 @@ namespace :fetch_update do
     total_cases_yesterday = Update.last.total_cases
 
     ## Total deaths
-    total_deaths_today_raw = page_html.css(".home #main-wrapper .homeLower .question table tr:nth-child(4) td:nth-child(2)").text
+    total_deaths_today_raw = page_html.css(".home #main-wrapper .homeLower .question table tr:nth-child(3) td:nth-child(2)").text
     total_deaths_today_formatted = total_deaths_today_raw.gsub(/[\s,]/ ,"").to_i
     total_deaths_yesterday = Update.last.total_deaths
 
