@@ -1,7 +1,7 @@
 namespace :daily_updates do
 
   desc "sends the daily update email or a warning to admin if today's update isn't saved"
-  task send_admin_notifications: :environment do
+  task send_todays_update: :environment do
 
     latest_update = Update.last
 

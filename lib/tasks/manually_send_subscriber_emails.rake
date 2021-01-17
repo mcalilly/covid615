@@ -1,7 +1,7 @@
 namespace :daily_updates do
 
   desc "send all subscribers a daily update with the latest Covid-19 numbers"
-  task send_subscriber_emails: :environment do
+  task manually_send_subscriber_emails: :environment do
 
     Subscriber.find_each do |subscriber|
       SubscribersMailer.send_daily_updates(subscriber).deliver_now
