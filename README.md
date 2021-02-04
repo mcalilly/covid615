@@ -10,6 +10,11 @@
 * rails db:migrate
 * then optionally delete the "latest.dump" file in the root directory
 
+# How to unsubscribe a user
+* `heroku run rails c`
+* `s = Subscriber.find_by_email("abc@xyz.com")`
+* `s.destroy!`
+
 # Next Steps
 * Create a mailer to send admins warnings if something hasn't posted
   - Simplest way might be a rake task that triggers a mailer to admin at 11am if there is not an update today (if Update.last date != today, etc.)
